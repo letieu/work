@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2a6ab1c1-9156-4e79-b40c-c73a570719cf" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="ProjectId" id="1hDIKTSOdFX9HvoN9BLLN13P9Nn" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$USER_HOME$/work/g8-payment" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/data/test" />
+      <recent name="$PROJECT_DIR$/src/data" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/assets" />
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2a6ab1c1-9156-4e79-b40c-c73a570719cf" name="Default Changelist" comment="" />
+      <created>1599539171586</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1599539171586</updated>
+      <workItem from="1599539172627" duration="2281000" />
+      <workItem from="1599547168640" duration="3941000" />
+      <workItem from="1599551820308" duration="2549000" />
+      <workItem from="1599565434250" duration="5655000" />
+      <workItem from="1599642361813" duration="1024000" />
+      <workItem from="1599897590667" duration="35000" />
+      <workItem from="1601905112114" duration="2130000" />
+      <workItem from="1601948976170" duration="17000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="601" y="345" width="744" height="438" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1599548612541">
+      <screen x="48" y="33" width="1872" height="1047" />
+    </state>
+    <state x="601" y="345" width="744" height="438" key="#com.intellij.fileTypes.FileTypeChooser/48.33.1872.1047@48.33.1872.1047" timestamp="1599548612541" />
+    <state x="0" y="1060" width="1050" height="1042" key="DiffContextDialog" timestamp="1601906617594">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="0" y="1060" width="1050" height="1042" key="DiffContextDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1601906617594" />
+    <state x="683" y="231" width="530" height="605" key="FileChooserDialogImpl" timestamp="1601948989714">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="683" y="231" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1601948989714" />
+    <state x="714" y="257" width="530" height="605" key="FileChooserDialogImpl/48.33.1872.1047@48.33.1872.1047" timestamp="1599643384403" />
+    <state x="0" y="32" width="1050" height="1042" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1601906617594">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="0" y="32" width="1050" height="1042" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1601906617594" />
+    <state x="754" y="261" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1601905401434">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="754" y="261" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1601905401434" />
+    <state x="604" y="239" width="759" height="633" key="find.popup" timestamp="1599571456685">
+      <screen x="48" y="33" width="1872" height="1047" />
+    </state>
+    <state x="604" y="239" width="759" height="633" key="find.popup/48.33.1872.1047@48.33.1872.1047" timestamp="1599571456685" />
+    <state x="563" y="45" width="840" height="1034" key="search.everywhere.popup" timestamp="1599548318989">
+      <screen x="48" y="33" width="1872" height="1047" />
+    </state>
+    <state x="563" y="45" width="840" height="1034" key="search.everywhere.popup/48.33.1872.1047@48.33.1872.1047" timestamp="1599548318989" />
+  </component>
+</project>
