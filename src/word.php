@@ -6,9 +6,11 @@ class Word
 
     public $types = [];
     public $time = 0;
+    public $name = '';
 
-    public function __construct($types)
+    public function __construct($types, $name)
     {
+        $this->name = $name;
         $this->types = [];
         foreach ($types as $type) {
             if ($this->types[$type]) {
@@ -25,7 +27,7 @@ class Word
     {
         $types = searchDirectoryIterator(self::DIR, $text);
 
-        return new Word($types);
+        return new Word($types, $text);
     }
 }
 
