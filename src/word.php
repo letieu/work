@@ -11,15 +11,7 @@ class Word
     public function __construct($types, $name)
     {
         $this->name = $name;
-        $this->types = [];
-        foreach ($types as $type) {
-            if ($this->types[$type]) {
-                $this->types[$type] ++;
-            } else {
-                $this->types[$type] = 1;
-            }
-        }
-
+        $this->types = $types;
         $this->time = count($types);
     }
 

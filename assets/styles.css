@@ -14,3 +14,20 @@ body .container-fluid{
     width: 100vw;
 }
 
+#res {
+    max-width: 500px;
+    padding: 5px;
+    border: 2px solid red;
+}
+
+#res span {
+    padding: 4px;
+}
+
+.point {
+    background-color: red;
+}
+.point + span {
+    background-color: red;
+}
+

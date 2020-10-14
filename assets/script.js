@@ -2,90 +2,106 @@ window.onload = init;
 let searchBtn;
 let searchInput;
 let searchResult;
-let result = []
+let res = document.getElementById('res')
 
-function init () {
+function init() {
     searchBtn = document.getElementById('search-btn');
     searchInput = document.getElementById('search-input');
     searchResult = document.getElementById('search-result');
 
-    searchBtn.onclick = () => {
-        search()
-    }
-    searchInput.onchange = () => {
-        search()
-    }
+    searchInput.addEventListener('change', () => {
+        res.innerHTML = ''
+        let words = searchInput.value.split(' ')
+
+        words.forEach((word, i) => {
+            res.innerHTML += `<span id=${i}>` + word + '</span>'
+        })
+
+        let spans = [...res.getElementsByTagName('span')]
+        spans.forEach(span => span.addEventListener('click', point))
+    })
 }
 
-function search() {
-    clearResult()
-    let input = searchInput.value;
-    input.trim();
-    if (!input) {
-        return
-    }
+function search(w1, w2) {
+    let word1, word2;
+    searchWord(w1)
+        .then(res => {
+            word1 = res.data.types
+            searchWord(w2)
+                .then(res => {
+                    word2 = res.data.types
+                    let numOfResult = (word1.length < word2.length) ? word1.length : word2.length
+                    let result = []
+                    for (let i = 0; i < numOfResult; i++) {
+                        result.push(`${word1[i]} - ${word2[i]}`)
+                    }
+                    console.log(word1, word2)
+                    showResult(collapse(result))
+                })
+        })
+}
 
-    let words = input.split(" ")
-    if (words.length <2) {
-        let res = searchWord(input)
-        showResults([res])
-    }
-    else {
-        let w1 = Math.floor(Math.random() * (words.length - 1))
-        let w2 = w1;
-        while (w2 === w1 ) {
-            w2 =  Math.floor(Math.random() * (words.length))
+function collapse(result) {
+    let newResult = []
+    let count = []
+    result.forEach((item) => {
+        if (!newResult.includes(item)) {
+            newResult.push(item)
+            count.push(1)
+        } else {
+            let index = newResult.indexOf(item)
+            count[index] ++
         }
+    })
 
-        searchWord(words[w1])
-        searchWord(words[w2])
+    newResult.forEach((item, index) => {
+        newResult[index] = `${item} ${count[index] > 1 ?('(' + count[index] + ')'): ''}`
+    })
 
-        showResults(result)
-    }
+    return newResult
 }
 
 function searchWord(word) {
-    axios.get('server.php',{
-        params: {
-            word: word
-        }
-    }).then(res => {
-        result.push(res.data)
-        if (result.length == 2) showResults(result)
-    })
-        .catch(res => console.log(res))
-}
-
-function showResults(datas)
-{
-    datas.forEach(data => {
-        showResult(data)
+    return new Promise((resolve, reject) => {
+        axios.get('server.php', {
+            params: {
+                word: word
+            }
+        }).then(res => {
+            resolve(res)
+        })
     })
 
 }
 
-function clearResult()
-{
-    result = []
+function showResult(result) {
+
     searchResult.innerHTML = '';
-}
-
-function showResult(data)
-{
     let resultTitle = document.createElement('li');
 
     resultTitle.classList.add('list-group-item');
     resultTitle.classList.add('list-group-item-warning');
-    resultTitle.textContent = `${data.name} ( số từ tìm thấy: ${data.time} ) `;
+    resultTitle.textContent = `( số ket qua: ${result.length} )`;
 
     searchResult.append(resultTitle)
-
-    for(let type in data.types) {
+    result.forEach(res => {
         let li = document.createElement('li');
         li.classList.add('list-group-item');
         li.classList.add('list-group-item-success');
 
-        li.textContent = type + ` (${data.types[type]})`;
+        li.textContent =`${res}`;
         searchResult.append(li)
-    }
+    })
+}
+
+
+
+
+function point() {
+    let points = [...res.getElementsByClassName('point')]
+    points.forEach(span => span.classList.remove('point'))
+
+    let nextSpan = document.getElementById(parseInt(this.id) + 1)
+    this.classList.add('point')
+    search(this.innerText, nextSpan.innerText)
 }
