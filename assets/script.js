@@ -22,11 +22,25 @@ function init() {
     })
 }
 
-function search(w1, w2) {
+function search(w1, w2 = null) {
     let word1, word2;
+
+    if (w1.includes(',')) {
+        w1 = w1.slice(0, -1)
+    }
+    if (w2.includes(',')) {
+        w2 = w2.slice(0, -1)
+        console.log('hehe')
+    }
+
     searchWord(w1)
         .then(res => {
             word1 = res.data.types
+            if (!w2) {
+                showResult(collapse(word1))
+                return
+            }
+
             searchWord(w2)
                 .then(res => {
                     word2 = res.data.types
@@ -35,7 +49,6 @@ function search(w1, w2) {
                     for (let i = 0; i < numOfResult; i++) {
                         result.push(`${word1[i]} - ${word2[i]}`)
                     }
-                    console.log(word1, word2)
                     showResult(collapse(result))
                 })
         })
@@ -50,14 +63,15 @@ function collapse(result) {
             count.push(1)
         } else {
             let index = newResult.indexOf(item)
-            count[index] ++
+            count[index]++
         }
     })
 
     newResult.forEach((item, index) => {
-        newResult[index] = `${item} ${count[index] > 1 ?('(' + count[index] + ')'): ''}`
+        newResult[index] = `${item} ${count[index] > 1 ? ('(' + count[index] + ')') : ''}`
     })
 
+    console.log(newResult, 'sdf')
     return newResult
 }
 
@@ -89,12 +103,10 @@ function showResult(result) {
         li.classList.add('list-group-item');
         li.classList.add('list-group-item-success');
 
-        li.textContent =`${res}`;
+        li.textContent = `${res}`;
         searchResult.append(li)
     })
 }
-
-
 
 
 function point() {
@@ -103,5 +115,6 @@ function point() {
 
     let nextSpan = document.getElementById(parseInt(this.id) + 1)
     this.classList.add('point')
-    search(this.innerText, nextSpan.innerText)
+
+    search(this.innerText, nextSpan ? nextSpan.innerText : null)
 }
