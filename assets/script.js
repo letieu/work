@@ -3,6 +3,9 @@ let searchBtn;
 let searchInput;
 let searchResult;
 let res = document.getElementById('res')
+let resultLength;
+
+
 
 function init() {
     searchBtn = document.getElementById('search-btn');
@@ -28,10 +31,7 @@ function search(w1, w2 = null) {
     if (w1.includes(',')) {
         w1 = w1.slice(0, -1)
     }
-    if (w2.includes(',')) {
-        w2 = w2.slice(0, -1)
-        console.log('hehe')
-    }
+
 
     searchWord(w1)
         .then(res => {
@@ -39,6 +39,10 @@ function search(w1, w2 = null) {
             if (!w2) {
                 showResult(collapse(word1))
                 return
+            }
+
+            if (w2.includes(',')) {
+                w2 = w2.slice(0, -1)
             }
 
             searchWord(w2)
@@ -55,6 +59,7 @@ function search(w1, w2 = null) {
 }
 
 function collapse(result) {
+    resultLength = result.length
     let newResult = []
     let count = []
     result.forEach((item) => {
@@ -71,7 +76,6 @@ function collapse(result) {
         newResult[index] = `${item} ${count[index] > 1 ? ('(' + count[index] + ')') : ''}`
     })
 
-    console.log(newResult, 'sdf')
     return newResult
 }
 
@@ -95,7 +99,7 @@ function showResult(result) {
 
     resultTitle.classList.add('list-group-item');
     resultTitle.classList.add('list-group-item-warning');
-    resultTitle.textContent = `( số ket qua: ${result.length} )`;
+    resultTitle.textContent = `( số ket qua: ${resultLength} )`;
 
     searchResult.append(resultTitle)
     result.forEach(res => {
